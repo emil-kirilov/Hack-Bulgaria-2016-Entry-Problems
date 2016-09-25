@@ -1,10 +1,19 @@
 def heads_and_tails
+  #getting the result from the tosses
+  #removing the comas and the whitespaces
   results = gets.chomp.gsub(/\,\s/,"")
 
+  #creating counters
   h_streak, h_max_streak = 0, 0 
   t_streak, t_max_streak = 0, 0 
   last_char = ''
 
+  #iterating through the tosses' results
+  #whenever Head or Tails is hit the corresponding streak counter increases
+  #the streak counter is compared to the max streak recorded
+  #if the current streak is greater, it is recorded
+  #whenever a new side of the coin is flipped the other side's counter is set to 0
+  #the side that has been flipped is recorded
   results.each_char do |c|   
     case c
     when 'H' 
@@ -24,6 +33,7 @@ def heads_and_tails
    end
   end
 
+  #comparing Head's and Tails's max streaks
   winner = h_max_streak <=> t_max_streak 
   case winner
   when 1
@@ -34,6 +44,5 @@ def heads_and_tails
     puts "T wins!"
   end
 end
-
 
 heads_and_tails
