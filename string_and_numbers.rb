@@ -5,7 +5,6 @@ def string_and_numbers
   #creating empty hash with default values of 0
   repetition = {}
   repetition.default = 0
-
   #counting how many times each character occurs in the string
   string.each_char do |c|
     repetition[c] = repetition[c] + 1 
@@ -14,12 +13,11 @@ def string_and_numbers
   #sorting the times each character occurs in deacreasing order and saving only the 10 biggest
   #characters that are not in the 10 most occuring are removed form the hash 
   most_occurs = repetition.values.sort {|x,y| y <=> x }.first(10)
-  repetition.keep_if { |k,v| v >= most_occurs[9] - 1}
+  repetition.keep_if { |k,v| v >= most_occurs[9] }
   
   #new hash for representing the encoding
   encoding = {}
   encoding.default = 0
-  
   
   #setting the encoding
   #using the inverted hash for key 
